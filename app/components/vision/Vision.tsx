@@ -46,7 +46,7 @@ const coreValues = [
 
 const Vision = () => {
   return (
-    <div id="vision" className="flex flex-col justify-center items-center px-6 md:px-20 py-16 mt-4 gap-8">
+    <div id="vision" className="flex flex-col justify-center items-center px-6 md:px-20 py-16 mt-4 mb-4 gap-8">
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
         {/* Vision Card */}
         <div className="bg-blue-900 rounded-xl p-8 flex flex-col items-center justify-start shadow-lg gap-6 text-center">

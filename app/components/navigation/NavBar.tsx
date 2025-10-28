@@ -1,59 +1,69 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Links } from '@/app/constants/constants';
-import { Link } from 'react-scroll'
+import { Link } from 'react-scroll';
 import Image from 'next/image';
+import { HiBars3BottomRight } from "react-icons/hi2";
 
-const NavBar = () => {
+type Props = {
+  openNav: () => void;
+};
+
+const NavBar = ({ openNav }: Props) => {
   const [isScroll, setIsScroll] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScroll(true);
-      } else {
-        setIsScroll(false);
-      }
-    };
-
-    // Attach the scroll listener
+    const handleScroll = () => setIsScroll(window.scrollY > 0);
     window.addEventListener('scroll', handleScroll);
-
-    // Cleanup when component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); // Empty dependency array: run once on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div
-      className={`fixed w-full flex items-center p-6 ${
-        isScroll ? 'bg-blue-900' : 'bg-transparent'
-      } justify-between z-50 transition-colors duration-300`}
+      className={`fixed w-full flex items-center p-4 md:p-6 justify-between z-50 transition-colors duration-300 ${
+        isScroll ? 'bg-blue-900 shadow-md' : 'bg-transparent'
+      }`}
     >
-      <div className="flex justify-center items-center gap-3.5">
+      {/* Logo and Title */}
+      <div className="flex items-center gap-3.5">
         <Image
           src="/good-logo.png"
           alt="Logo"
-          width={200}
-          height={200}
-          className="object-contain"
+          width={100}
+          height={100}
+          className="object-contain "
         />
-        <h1 className="font-bold text-blue-500 text-xl">WAYFINDER RESEARCH & CONSULTANCY</h1>
-      </div>
-
-      <div className={`flex gap-10 ${isScroll? 'text-orange-500':'text-white '} mr-10`}>
+        <h1 className="font-bold text-blue-500 md:text-2xl">
+          WAYFINDER RESEARCH & CONSULTANCY
+        </h1>
+      </div>     
+      <div
+        className={`hidden md:flex gap-10 mr-10 ${
+          isScroll ? 'text-orange-400' : 'text-white'
+        }`}
+      >
         {Links.map((link) => (
-          <Link key={link.id}
-              to={link.url}
-              smooth={true}        
-              duration={800}       
-              offset={-70}          
-              spy={true}>
+          <Link
+            key={link.id}
+            to={link.url}
+            smooth
+            duration={800}
+            offset={-70}
+            spy
+            className="cursor-pointer hover:text-orange-300 transition"
+          >
             {link.name}
           </Link>
         ))}
       </div>
+
+      {/* Mobile Menu Icon */}
+      <HiBars3BottomRight
+        onClick={openNav}
+        className={`w-8 h-8 cursor-pointer md:hidden transition-all duration-300 ${
+          isScroll ? 'text-white' : 'text-blue-900'
+        }`}
+      />
     </div>
   );
 };
