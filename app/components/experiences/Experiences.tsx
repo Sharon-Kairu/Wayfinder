@@ -1,4 +1,6 @@
+'use client'
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Experiences = () => {
   const groups = [
@@ -125,15 +127,23 @@ const Experiences = () => {
   ];
 
   return (
-    <div id="experiences" className="w-full py-10 mt-10 ">
+    <div id="experiences" className="w-full py-10 mt-10">
       <h2 className="text-center text-blue-900 font-bold text-3xl mb-8">Our Experiences</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6">
         {groups.map((group, index) => (
-          <div
+          <motion.div
             key={index}
             className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-start items-center p-6"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.1,
+              type: 'spring',
+              stiffness: 100,
+            }}
+            viewport={{ once: true }}
           >
-            {/* Image container with consistent sizing */}
             <div className="w-28 h-28 md:w-32 md:h-32 flex justify-center items-center rounded-lg mb-4">
               <img
                 src={group.img}
@@ -142,10 +152,12 @@ const Experiences = () => {
               />
             </div>
 
-            <h3 className="text-orange-600 font-semibold text-lg text-center mb-2">{group.classification}</h3>
+            <h3 className="text-orange-600 font-semibold text-lg text-center mb-2">
+              {group.classification}
+            </h3>
             <p className="text-sm text-blue-900 italic mb-2 text-center">{group.timeline}</p>
             <p className="text-gray-700 text-sm leading-relaxed text-center">{group.desc}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
