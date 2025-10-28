@@ -8,7 +8,7 @@ const About = () => {
         <h1  className='text-orange-600 font-bold text-2xl'>ABOUT US</h1> 
         <div className='h-2 w-30 bg-orange-600 rounded-xl'></div>  
       </div>
-      <div className="bg-white p-10 flex flex-col justify-center">
+      <div className="bg-white p-4 md:p-10 flex flex-col justify-center">
         <p className="text-gray-700 text-base md:text-lg leading-relaxed">
             Wayfinder is a research and consultancy firm started in 2009. We work with
             humanitarian and development partners to bring positive changes in the Horn of

@@ -52,7 +52,7 @@ const Do = () => {
     }
   ];
   return (
-     <div id="do" className="flex flex-col justify-center items-center bg-white mt-6 gap-8">
+     <div id="do" className="flex flex-col justify-center items-center bg-white mt-6 mb-6 p-4 gap-8">
       <h1 className="text-blue-900 font-bold text-3xl mt-5 mb-4 text-center">WHAT WE DO</h1>
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 ">
         {activities.map((activity) => (
