@@ -189,14 +189,14 @@ const Experiences = () => {
   { img: '/cewarn.png' },
   { img: '/SAC.png' },
   { img: '/acted.png' },
-  { img: '/dfid.jpg' },
+  { img: '/DFID.webp' },
   { img: '/unicef.webp' },
   { img: '/ifc.webp' },
-  { img: '/si.webp' },
+  { img: '/SI.webp' },
   { img: '/somalia_association.png' },
   { img: '/undp.webp' },
   { img: '/ifc.webp' },
-  { img: '/fao.jpg' },
+  { img: '/fao.png' },
   { img: '/eu.webp' },
   { img: '/SCC.webp' },
   { img: '/islamic.webp' },
@@ -222,8 +222,7 @@ const Experiences = () => {
             }}
             viewport={{ once: true }}
           >
-            
-
+            <div className="w-16 h-1 bg-orange-500 rounded-full mb-4"></div>
             <h3 className="text-orange-600 font-semibold text-lg text-center mb-2">
               {group.classification}
             </h3>
