@@ -197,8 +197,9 @@ const Experiences = () => {
   { img: '/undp.webp' },
   { img: '/ifc.webp' },
   { img: '/fao.jpg' },
+  { img: '/eu.webp' },
+  { img: '/SCC.webp' },
   { img: '/islamic.webp' },
-  { img: '/dfid.jpg' },
   { img: '/giz.webp' },
   { img: '/mott.webp' }
 ];
@@ -276,7 +277,7 @@ const Experiences = () => {
 
 
       <h2 className="text-center text-blue-900 font-bold text-3xl mt-3 mb-8">Our Valued Partners</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-4 gap-6 px-6">
         {partners.map((partner, index) => (
           <motion.div
             key={index}
