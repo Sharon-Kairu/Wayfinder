@@ -30,6 +30,10 @@ const Contact = () => {
                     <MdEmail/>
                     <p className='md:text-xl text-blue-900'>info.wayfinderconsultancy@gmail.com</p>
                 </div>
+                <div className='flex flex-row items-center justify-center'>
+                    <MdEmail/>
+                    <p className='md:text-xl text-blue-900'>info@wayfinderconsultancy.org</p>
+                </div>
             </div>
         </div>
     </div>

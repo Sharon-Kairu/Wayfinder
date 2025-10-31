@@ -52,36 +52,39 @@ const Do = () => {
     }
   ];
   return (
-     <div id="do" className="flex flex-col justify-center items-center bg-white mt-6 mb-6 p-4 gap-8">
-      <h1 className="text-blue-900 font-bold text-3xl mt-5 mb-4 text-center">WHAT WE DO</h1>
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 ">
-        {activities.map((activity) => (
-          <div
-            key={activity.title}
-            className="bg-blue-100 rounded-xl p-6 md:p-8 flex flex-col items-center justify-start shadow-lg gap-6 md:gap-10 hover:shadow-xl transition-shadow duration-300"
-          >
-            {/* Left Side - Image */}
-            <div className="flex items-center justify-center flex-shrink-0">
-              <img
-                src={activity.img}
-                alt={activity.title}
-                className="object-contain w-50 h-50 md:w-100 md:h-100"
-              />
-            </div>
+     <div id="do" className="flex flex-col justify-center items-center bg-white p-4 md:p-8 gap-6">
+  <h1 className="text-blue-900 font-bold text-3xl md:text-4xl mb-6 text-center">WHAT WE DO</h1>
+  
+  {/* Cards container */}
+  <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-10">
+    {activities.map((activity) => (
+      <div
+        key={activity.title}
+        className="bg-blue-50 rounded-2xl p-4 md:p-6 flex flex-col items-center justify-start shadow-md hover:shadow-xl transition-all duration-300"
+      >
+        {/* Image */}
+        <div className="flex items-center justify-center w-full h-48 overflow-hidden rounded-xl mb-4">
+          <img
+            src={activity.img}
+            alt={activity.title}
+            className="object-cover w-full h-full"
+          />
+        </div>
 
-            {/* Right Side - Text */}
-            <div className="text-center md:text-left">
-              <h2 className="font-bold text-orange-500 text-xl md:text-2xl mb-2">
-                {activity.title}
-              </h2>
-              <p className="text-blue-900 text-base leading-relaxed">
-                {activity.desc}
-              </p>
-            </div>
-          </div>
-        ))}
+        {/* Text */}
+        <div className="text-center">
+          <h2 className="font-bold text-orange-500 text-xl md:text-2xl mb-3">
+            {activity.title}
+          </h2>
+          <p className="text-blue-900 text-base leading-relaxed">
+            {activity.desc}
+          </p>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
   )
 }
 

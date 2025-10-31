@@ -46,17 +46,22 @@ const Footer = () => {
         
         <div className="flex flex-col items-center justify-center mt-6 p-6 space-y-3">
           <div className="flex items-center gap-2">
-            <FiMail size={20} />
-            <span>info.wayfinderconsultancy@gmail.com</span>
-          </div>
-          <div className="flex items-center gap-2">
             <FiPhone size={20} />
             <span>+254 727 103426</span>
           </div>
+          
           <div className="flex items-center gap-2">
             <FiPhone size={20} />
             <span>+252 612 450115</span>
           </div>
+          <div className="flex items-center gap-2">
+            <FiMail size={20} />
+            <span>info.wayfinderconsultancy@gmail.com</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FiMail size={20} />
+            <span>info@wayfinderconsultancy.org</span>
+          </div> 
         </div>
       </div>
 
