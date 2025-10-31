@@ -211,7 +211,7 @@ const Experiences = () => {
         {groups.map((group, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-start items-center p-6"
+            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-start items-center p-6 border-t-4 border-orange-500"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -222,7 +222,6 @@ const Experiences = () => {
             }}
             viewport={{ once: true }}
           >
-            <div className="w-16 h-1 bg-orange-500 rounded-full mb-4"></div>
             <h3 className="text-orange-600 font-semibold text-lg text-center mb-2">
               {group.classification}
             </h3>
