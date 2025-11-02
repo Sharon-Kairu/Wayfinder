@@ -1,6 +1,9 @@
 'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
+import {Swiper, SwiperSlide} from 'swiper/react'
+import { Pagination,Autoplay } from 'swiper/modules';
+
 
 const Experiences = () => {
   const groups = [
@@ -184,30 +187,132 @@ const Experiences = () => {
       desc: `Produced learning briefs highlighting field trends, challenges, best practices, and recommendations for humanitarian partners in Somalia.`,
     },
   ];
-  const partners = [
-  { img: '/USAID.png' },
-  { img: '/cewarn.png' },
-  { img: '/SAC.png' },
-  { img: '/acted.png' },
-  { img: '/DFID.webp' },
-  { img: '/unicef.webp' },
-  { img: '/ifc.webp' },
-  { img: '/SI.webp' },
-  { img: '/somalia_association.png' },
-  { img: '/undp.webp' },
-  { img: '/ifc.webp' },
-  { img: '/fao.png' },
-  { img: '/eu.webp' },
-  { img: '/SCC.webp' },
-  { img: '/islamic.webp' },
-  { img: '/giz.webp' },
-  { img: '/mott.webp' }
+  // Add this above your return statement, next to partners & groups arrays:
+const why = [
+  {
+    img: '/score.png',
+    text: 'Proven delivery in complex humanitarian and development contexts',
+  },
+  {
+    img: '/management.png',
+    text: 'Strong MEAL, TPM, survey, and verification systems',
+  },
+  {
+    img: '/genders.png',
+    text: 'Gender-responsive and disability-inclusive methodologies',
+  },
+  {
+    img: '/ethics.png',
+    text: 'Ethical community engagement and safeguarding practices',
+  },
+  {
+    img: '/high-quality.png',
+    text: 'High-quality reporting with actionable recommendations',
+  },
+  {
+    img: '/innovation.png',
+    text: 'Rapid deployment and experienced Somali research teams',
+  },
+  {
+    img: '/shield.png',
+    text: 'Trusted by INGOs, UN agencies, government, and donors',
+  },
 ];
+
+  const partners = [
+  { 
+    img: '/USAID.png',
+    name: 'USAID',
+    testimonial: 'Wayfinder provided reliable data insights that strengthened our humanitarian response. Their professionalism and attention to detail were exceptional throughout the project.'
+  },
+  { 
+    img: '/cewarn.png',
+    name: 'CEWARN',
+    testimonial: 'Through Wayfinder’s expertise, we were able to monitor conflict dynamics more effectively. Their data-driven approach helped improve our early warning systems.'
+  },
+  { 
+    img: '/SAC.png',
+    name: 'SAC',
+    testimonial: 'The Wayfinder team demonstrated strong technical capacity and collaboration. Their research contributions significantly enhanced our policy decisions.'
+  },
+  { 
+    img: '/acted.png',
+    name: 'ACTED',
+    testimonial: 'We appreciated Wayfinder’s commitment to accuracy and timely delivery. Their findings helped us refine our program implementation strategies.'
+  },
+  { 
+    img: '/DFID.webp',
+    name: 'DFID',
+    testimonial: 'Working with Wayfinder was an excellent experience. Their analysis provided actionable insights that informed our development programming.'
+  },
+  { 
+    img: '/unicef.webp',
+    name: 'UNICEF',
+    testimonial: 'Wayfinder’s monitoring and evaluation support helped us measure project outcomes with precision. Their team brought clarity to complex data sets.'
+  },
+  { 
+    img: '/ifc.webp',
+    name: 'IFC',
+    testimonial: 'The professionalism and methodological rigor of Wayfinder’s research were outstanding. Their reports were instrumental in shaping our strategic plans.'
+  },
+  { 
+    img: '/SI.webp',
+    name: 'Social Impact',
+    testimonial: 'Wayfinder brought strong analytical skills and a practical understanding of local contexts. Their insights strengthened the overall quality of our evaluations.'
+  },
+  { 
+    img: '/somalia_association.png',
+    name: 'Somalia Association',
+    testimonial: 'Our collaboration with Wayfinder resulted in actionable, evidence-based insights. Their expertise continues to influence our ongoing initiatives.'
+  },
+  { 
+    img: '/undp.webp',
+    name: 'UNDP',
+    testimonial: 'Wayfinder’s evaluations have consistently added value to our programs. Their data-driven approach supports impactful and sustainable interventions.'
+  },
+  { 
+    img: '/ifc.webp',
+    name: 'IFC (Duplicate)',
+    testimonial: 'Again, Wayfinder’s technical support and research guidance were top-notch. Their findings continue to guide our project evaluations effectively.'
+  },
+  { 
+    img: '/fao.png',
+    name: 'FAO',
+    testimonial: 'Wayfinder provided accurate agricultural and food security assessments. Their work directly contributed to better resource allocation and planning.'
+  },
+  { 
+    img: '/eu.webp',
+    name: 'European Union',
+    testimonial: 'Wayfinder’s monitoring systems improved the transparency and efficiency of our development projects across the region. A dependable research partner.'
+  },
+  { 
+    img: '/SCC.webp',
+    name: 'SCC',
+    testimonial: 'The Wayfinder team offered valuable data insights that informed our community resilience programs. Their reports were concise, timely, and impactful.'
+  },
+  { 
+    img: '/islamic.webp',
+    name: 'Islamic Relief',
+    testimonial: 'Wayfinder’s collaboration was instrumental in evaluating our humanitarian efforts. Their detailed reporting helped us enhance our project outcomes.'
+  },
+  { 
+    img: '/giz.webp',
+    name: 'GIZ',
+    testimonial: 'We valued Wayfinder’s evidence-based recommendations and professional execution. Their data insights were critical for our program decision-making.'
+  },
+  { 
+    img: '/mott.webp',
+    name: 'Mott Foundation',
+    testimonial: 'Wayfinder delivered high-quality data analysis and research support. Their commitment to accuracy and reliability made them an exceptional partner.'
+  }
+];
+
 
   return (
     <div id="experiences" className="w-full py-10 mt-10">
       <h2 className="text-center text-blue-900 font-bold text-3xl mb-8">Our Experience Portfolio</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6">
+      {/*Experiences*/}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-4 gap-6 px-6">
         {groups.map((group, index) => (
           <motion.div
             key={index}
@@ -230,78 +335,75 @@ const Experiences = () => {
           </motion.div>
         ))}
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 p-6 bg-blue-900 shadow-lg m-6 rounded-2xl">
-  {/* Title Card */}
-  <div className="bg-white flex items-center justify-center m-3 p-6 rounded-2xl shadow-md col-span-1 lg:col-span-1 text-center transition-transform duration-300 hover:scale-105">
-    <h3 className="text-orange-600 font-bold text-2xl md:text-4xl leading-tight">
-      Why Partners <br /> Choose Wayfinder
-    </h3>
-  </div>
-
-  {/* Checklist Card */}
-  <div className="bg-white p-8 rounded-2xl shadow-md col-span-1 lg:col-span-3 transition-transform duration-300 hover:scale-105">
-    <ul className="space-y-4 text-gray-700 leading-relaxed">
-      <li className="flex items-start">
-        <span className=" font-bold text-xl mr-3">✔</span>
-        Proven delivery in complex humanitarian and development contexts
-      </li>
-      <li className="flex items-start">
-        <span className=" font-bold text-xl mr-3">✔</span>
-        Strong MEAL, TPM, survey, and verification systems
-      </li>
-      <li className="flex items-start">
-        <span className=" font-bold text-xl mr-3">✔</span>
-        Gender-responsive and disability-inclusive methodologies
-      </li>
-      <li className="flex items-start">
-        <span className=" font-bold text-xl mr-3">✔</span>
-        Ethical community engagement and safeguarding practices
-      </li>
-      <li className="flex items-start">
-        <span className=" font-bold text-xl mr-3">✔</span>
-        High-quality reporting with actionable recommendations
-      </li>
-      <li className="flex items-start">
-        <span className=" font-bold text-xl mr-3">✔</span>
-        Rapid deployment and experienced Somali research teams
-      </li>
-      <li className="flex items-start">
-        <span className="font-bold text-xl mr-3">✔</span>
-        Trusted by INGOs, UN agencies, government and donors
-      </li>
-    </ul>
-  </div>
-</div>
-
-
-      <h2 className="text-center text-blue-900 font-bold text-3xl mt-3 mb-8">Our Valued Partners</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-4 gap-6 px-6">
-        {partners.map((partner, index) => (
-          <motion.div
-            key={index}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-start items-center p-6"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.1,
-              type: 'spring',
-              stiffness: 100,
-            }}
-            viewport={{ once: true }}
-          >
-            <div className="w-28 h-28 md:w-32 md:h-32 flex justify-center items-center rounded-lg mb-4">
-              <img
-                src={partner.img}
-                alt='partner'
-                className="max-w-full max-h-full object-contain"
-              />
+      {/*Why*/}
+      <div className="flex flex-col p-6 bg-blue-900 shadow-lg m-6 rounded-2xl">
+        <h1 className='text-center text-white font-bold mb-4 text-xl md:text-2xl'>Why Partners Choose Wayfinder</h1>
+        {/* Checklist Card */}
+      <div className="bg-white p-8 rounded-2xl shadow-md col-span-1 lg:col-span- transition-transform duration-300 ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          {why.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center bg-teal-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border-t-4 border-orange-500 hover:scale-105"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow mb-4">
+                <img
+                  src={item.img}
+                  alt="why choose wayfinder"
+                  className="w-10 h-10 object-contain"
+                />
+              </div>
+              <p className="text-gray-700 text-sm leading-relaxed font-medium">
+                {item.text}
+              </p>
             </div>
-           
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+      </div>
+      {/*Partners*/}
+      <h2 className="text-center text-blue-900 font-bold text-3xl mt-16 mb-10">
+        Our Valued Partners
+      </h2>
+
+      <div className="w-full bg-white py-10">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
+          className="w-full"
+        >
+          {partners.map((partner, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-blue-100 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center p-8 mx-4 h-full">
+                <div className="w-24 h-24 md:w-28 md:h-28 flex justify-center items-center bg-gray-50 rounded-full mb-4 shadow-sm">
+                  <img
+                    src={partner.img}
+                    alt={partner.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <h3 className="text-blue-900 font-semibold text-lg mb-2">
+                  {partner.name}
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                  {partner.testimonial}
+                </p>
+                <div className="mt-2 w-12 h-1 bg-orange-500 rounded-full"></div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+       </div>
+    
+  </div>
   );
 };
 

@@ -9,7 +9,7 @@ const F: React.FC = () => {
   return (
     <section className="bg-gray-50 py-16 px-6 md:px-20 text-center rounded-2xl mt-10 shadow-inner">
       <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-        Work With Us
+        Work With Us 
       </h2>
       <p className="text-gray-700 text-lg md:text-xl mb-10 max-w-3xl mx-auto">
         Let’s support your next programme with high-quality data and measurable results.
@@ -21,23 +21,7 @@ const F: React.FC = () => {
         <p className="text-gray-700"><span className="font-bold">Organization:</span> Wayfinder Research & Consultancy</p>
         <p className="text-gray-700"><span className="font-bold">Email:</span> info@wayfinderconsultancy.org / info.wayfinderconsultancy@gmail.com</p>
 
-        <form className="mt-6 flex flex-col gap-4">
-          <textarea
-            placeholder="Your message..."
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none h-32"
-          ></textarea>
-
-          <button
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              router.push('/contact'); // Optional: Link to a contact page
-            }}
-            className="bg-blue-900 hover:bg-orange-500 text-white font-semibold py-3 rounded-lg transition duration-300"
-          >
-            Request Consultation
-          </button>
-        </form>
+        
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
           <a

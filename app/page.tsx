@@ -12,7 +12,7 @@ export default function Home() {
      <Do />
      <Experiences/>
      <Call/>
-     <Contact/>
+   
     </div>
   );
 }
