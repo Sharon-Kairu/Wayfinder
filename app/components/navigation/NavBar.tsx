@@ -20,9 +20,7 @@ const NavBar = ({ openNav }: Props) => {
 
   return (
     <div
-      className={`fixed w-full flex items-center p-4 md:p-6 justify-between z-50 transition-colors duration-300 ${
-        isScroll ? 'bg-blue-900 shadow-md' : 'bg-transparent'
-      }`}
+      className={`fixed w-full flex items-center p-4 md:p-6 justify-between z-50 transition-colors duration-300 bg-white shadow-md' `}
     >
       {/* Logo and Title */}
       <div className="flex items-center gap-3.5">
@@ -39,7 +37,7 @@ const NavBar = ({ openNav }: Props) => {
       </div>     
       <div
         className={`hidden md:flex gap-10 mr-10 ${
-          isScroll ? 'text-orange-400' : 'text-white'
+          isScroll ? 'text-blue-900' : 'text-orange-600'
         }`}
       >
         {Links.map((link) => (

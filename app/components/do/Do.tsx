@@ -1,91 +1,145 @@
-import React from 'react'
+'use client';
+import React from 'react';
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { useRouter } from 'next/navigation';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-const Do = () => {
-  const activities = [
-    {
-      img: '/do_1.jpeg',
-      title: '1. Political Economy Analysis & Security Advisory',
-      desc: `Wayfinder helps international organizations like the World Bank, EU, DFID, FCO, and the UN by providing advice on political economy, economic growth, and security in Somalia and East Africa. 
-      We gather up-to-date information, understand local power structures, and create strategies to work with key local groups, even in high-risk areas. 
-      Our services also include security risk analysis, management planning, and ongoing advisory to help organizations work safely and effectively. 
-      Additionally, we deliver detailed economic analysis for international and national organizations to support planning of economic growth programs, with strong connections to private businesses, government officials, and civil society organizations across Somalia.`
-    },
-    {
-      img: '/do_2.jpeg',
-      title: '2. Third Party Monitoring & Performance Evaluation',
-      desc: `Wayfinder specializes in third-party monitoring and performance evaluations. 
-      Our experienced team reviews project effectiveness, efficiency, and overall impact. 
-      We use both quantitative (numbers) and qualitative (stories and insights) methods to provide a full understanding of program outcomes. 
-      With a network of skilled field monitors and data collectors across the region, we deliver timely, accurate information that helps clients make data-driven decisions in complex environments.`
-    },
-    {
-      img: '/do_3.jpeg',
-      title: '3. Research & Policy Advisory Services',
-      desc: `Wayfinder has built one of the most extensive and effective networks of multi-disciplinary researchers in Somalia. 
-      We have conducted baseline assessments that support the international community and the Somali government in designing programs for newly recovered areas and emerging sectors of interest. 
-      Our research combines in-depth qualitative studies and quantitative surveys with ground-truthing and triangulation to ensure data accuracy. 
-      Our consultants have expertise in law, economics, public policy, financial management, and security. 
-      We conduct baseline and endline surveys, gender and child safeguard assessments, and environmental and social safeguard assessments to support policy and program compliance.`
-    },
-    {
-      img: '/do_4.jpeg',
-      title: '4. Organizational Capacity Building & Human Resource Management',
-      desc: `Wayfinder connects clients with a wide network of experienced professionals to meet staffing and organizational development needs. 
-      We believe in creative empowerment and respect as the foundation of effective teamwork. 
-      Our consultants are skilled in organizational development, management, training, and even web development. 
-      We manage HR functions, conduct job evaluations, and provide recruitment support within 4–6 weeks depending on the approach. 
-      With 12 permanent staff and 30 data collectors, we maintain a strong HR policy and proven experience in professional development and management.`
-    },
-    {
-      img: '/do_5.jpeg',
-      title: '5. Operational & Logistics Management',
-      desc: `Wayfinder is a full-service consultancy firm providing technical expertise along with comprehensive operational and logistical support. 
-      With over eight years of experience in fragile regions, we have deep local knowledge of the Somali context and take full responsibility for logistics, operations, and field security. 
-      We have successfully helped international organizations access areas that would otherwise be difficult to reach.`
-    },
-    {
-      img: '/do_6.jpeg',
-      title: '6. Community Engagement Strategy',
-      desc: `Wayfinder ensures that all projects are community-driven and inclusive. 
-      We work with local leaders, community-based organizations, and youth networks to ensure active participation in project design, implementation, and evaluation. 
-      This approach enhances trust, ownership, and sustainability of all development initiatives we support.`
-    }
-  ];
-  return (
-     <div id="do" className="flex flex-col justify-center items-center bg-white p-4 md:p-8 gap-6">
-  <h1 className="text-blue-900 font-bold text-3xl md:text-4xl mb-6 text-center">WHAT WE DO</h1>
-  
-  {/* Cards container */}
-  <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-10">
-    {activities.map((activity) => (
-      <div
-        key={activity.title}
-        className="bg-blue-50 rounded-2xl p-4 md:p-6 flex flex-col items-center justify-start shadow-md hover:shadow-xl transition-all duration-300"
-      >
-        {/* Image */}
-        <div className="flex items-center justify-center w-full h-48 overflow-hidden rounded-xl mb-4">
-          <img
-            src={activity.img}
-            alt={activity.title}
-            className="object-cover w-full h-full"
-          />
-        </div>
-
-        {/* Text */}
-        <div className="text-center">
-          <h2 className="font-bold text-orange-500 text-xl md:text-2xl mb-3">
-            {activity.title}
-          </h2>
-          <p className="text-blue-900 text-base leading-relaxed">
-            {activity.desc}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-  )
+// Define the Activity interface
+interface Activity {
+  img: string;
+  title: string;
+  desc: string;
 }
 
-export default Do
+const Do: React.FC = () => {
+  const router = useRouter();
+
+  const images = [
+    { img: '/do_1.jpeg' },
+    { img: '/do_2.jpeg' },
+    { img: '/do_3.jpeg' },
+    { img: '/do_4.jpeg' },
+    { img: '/do_5.jpeg' },
+    { img: '/do_6.jpeg' },
+  ];
+
+  const activities: Activity[] = [
+    {
+      img: '/data.png',
+      title: 'Political Economy Analysis & Security Advisory',
+      desc: `Wayfinder helps international organizations like the World Bank, EU, DFID, FCO, and the UN by providing advice on political economy, economic growth, and security in Somalia and East Africa. 
+      We gather up-to-date information, understand local power structures, and create strategies to work with key local groups, even in high-risk areas.`,
+    },
+    {
+      img: '/third-party.png',
+      title: 'Third Party Monitoring & Performance Evaluation',
+      desc: `Wayfinder specializes in third-party monitoring and performance evaluations using both quantitative and qualitative methods to deliver actionable insights.`,
+    },
+    {
+      img: '/research.png',
+      title: 'Research & Policy Advisory Services',
+      desc: `Our multidisciplinary research network in Somalia conducts baseline assessments and studies to guide international and government programs.`,
+    },
+    {
+      img: '/customer-care.png',
+      title: 'Organizational Capacity Building & Human Resource Management',
+      desc: `We provide staffing, recruitment, and HR management services to strengthen institutional performance and professional development.`,
+    },
+    {
+      img: '/logistics-management.png',
+      title: 'Operational & Logistics Management',
+      desc: `Wayfinder offers logistical and operational expertise, helping clients safely access complex regions with reliable field support.`,
+    },
+    {
+      img: '/civic.png',
+      title: 'Community Engagement Strategy',
+      desc: `We work closely with local communities to ensure that all projects are inclusive, trusted, and sustainable.`,
+    },
+  ];
+
+  const handleExplore = (activity: Activity) => {
+    router.push(
+      `/whatwedo?title=${encodeURIComponent(activity.title)}&desc=${encodeURIComponent(activity.desc)}&img=${activity.img}`
+    );
+  };
+
+  return (
+    <div id="do" className="flex flex-col justify-center items-center bg-white py-16 px-6 md:px-12">
+      <h1 className="text-blue-900 font-bold text-3xl md:text-4xl mb-10 text-center">
+        WHAT WE DO
+      </h1>
+
+      {/* Sliding Images */}
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        spaceBetween={25}
+        slidesPerView={1}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        className="w-full max-w-6xl mb-16"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative w-full h-[220px] md:h-[260px] lg:h-[300px] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src={image.img}
+                alt={`Activity ${index + 1}`}
+                fill
+                className="object-cover object-center hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={index === 0}
+              />
+              <div className="absolute inset-0 bg-black/25 hover:bg-black/10 transition-all duration-300"></div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Cards Section */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {activities.map((activity, index) => (
+          <div
+            key={index}
+            className="bg-blue-50 rounded-2xl p-6 flex flex-col items-center text-center 
+            shadow-md hover:shadow-xl transition-all duration-300 border-t-4 border-orange-500"
+          >
+            {/* Small Image/Icon */}
+            <div className="w-20 h-20 mb-4 flex items-center justify-center bg-teal-100 rounded-full shadow-sm overflow-hidden">
+              <Image
+                src={activity.img}
+                alt={activity.title}
+                width={30}
+                height={30}
+                className="object-contain"
+              />
+            </div>
+
+            {/* Title */}
+            <h2 className="font-semibold text-blue-900 text-lg md:text-xl mb-4">
+              {activity.title}
+            </h2>
+
+            {/* Explore Button */}
+            <button
+              onClick={() => handleExplore(activity)}
+              className="mt-auto bg-orange-500 text-white px-6 py-2 rounded-full font-medium 
+              hover:bg-orange-600 hover:scale-105 transition-all duration-200"
+            >
+              Explore
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Do;

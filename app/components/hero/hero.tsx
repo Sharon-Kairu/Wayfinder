@@ -1,26 +1,46 @@
-import React from 'react'
-import Image from 'next/image'
+'use client';
+import React from 'react';
+import { useRouter } from "next/navigation";
+import Image from 'next/image';
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
-    <div
+    <section
       id="home"
-      className=" w-full min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center px-10 py-20 bg-cover bg-center"
+      className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center text-white"
       style={{
         backgroundImage: "url('/hero3.jpg')",
-        
       }}
     >
-        <div className="absolute inset-0 bg-black/40"></div>   
-       <div className="relative z-10 max-w-4xl mx-auto text-center md:text-left">
-  <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
-    At Wayfinder, we pride ourselves on our core values of integrity, excellence, innovation, collaboration, and community focus. Our services include Political Economy Analysis & Security Advisory, Third Party Monitoring & Performance Evaluation, Formative Research & Policy Advisory, Organizational Capacity Building, and more. We are dedicated to empowering organizations and communities through evidence-based solutions and sustainable development initiatives. Let us help you navigate complex challenges and achieve your goals.
-  </p>
-</div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-blue-900/60"></div>
 
-        
-    </div>
-  )
-}
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl px-6 md:px-16 text-center md:text-left space-y-6">
+        <h1 className="text-3xl md:text-5xl font-extrabold leading-snug">
+          <span className="text-orange-500">Evidence-Driven Insights</span> for 
+          <br /> Stronger Humanitarian & Development Impact
+        </h1>
 
-export default Hero
+        <p className="text-gray-100 text-base md:text-lg leading-relaxed max-w-3xl">
+          Delivering Monitoring, Evaluation, Research, and Data Systems 
+          across Somalia and East Africa — empowering organizations with 
+          reliable data and actionable strategies.
+        </p>
+
+        <div className="flex justify-center md:justify-start">
+          <button
+            onClick={() => router.push('/about')}
+            className="px-8 py-3 bg-orange-500 hover:bg-teal-500 transition-all duration-300 text-white font-semibold rounded-full shadow-lg"
+          >
+            Learn More
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

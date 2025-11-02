@@ -36,8 +36,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-blue-100`}
       >
-        <ResponsiveNav />
-        {children}
+        
+        <main >
+          {children}
+        </main>
         <Footer/>
       </body>
     </html>
