@@ -1,13 +1,11 @@
 'use client';
 import { useSearchParams, useRouter } from 'next/navigation';
-import Image from 'next/image';
 import React from 'react';
 
-const page= () => {
+const Page = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Get data from query parameters
   const title = searchParams.get('title');
   const desc = searchParams.get('desc');
   const img = searchParams.get('img');
@@ -25,9 +23,9 @@ const page= () => {
         </button>
 
         {/* Image/Icon */}
-        <div className="w-20 h-20 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center shadow-sm">
+        <div className="w-20 h-20 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center shadow-sm overflow-hidden">
           {img && (
-            <Image
+            <img
               src={img}
               alt={title || 'Activity image'}
               width={80}
@@ -51,4 +49,4 @@ const page= () => {
   );
 };
 
-export default page;
+export default Page;
