@@ -2,6 +2,7 @@ import Hero from "./components/hero/hero";
 import ResponsiveNav from "./components/navigation/ResponsiveNav";
 import Do from "./components/do/Do";
 import Experiences from "./components/experiences/Experiences";
+import Call from "./components/call/Call"
 import Contact from "./components/contact/Contact";
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
      <Hero />
      <Do />
      <Experiences/>
+     <Call/>
      <Contact/>
     </div>
   );
