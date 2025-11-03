@@ -11,7 +11,7 @@ const Footer = () => {
       
       <hr />
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
         
         <div className="flex flex-col items-center justify-center mt-6 p-6">
             <Image

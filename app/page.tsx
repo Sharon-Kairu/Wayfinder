@@ -3,7 +3,7 @@ import ResponsiveNav from "./components/navigation/ResponsiveNav";
 import Do from "./components/do/Do";
 import Experiences from "./components/experiences/Experiences";
 import Call from "./components/call/Call"
-import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
 export default function Home() {
   return (
     <div className="bg-blue-100">
@@ -12,6 +12,7 @@ export default function Home() {
      <Do />
      <Experiences/>
      <Call/>
+     <Footer/>
    
     </div>
   );

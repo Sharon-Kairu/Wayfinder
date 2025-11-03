@@ -7,7 +7,7 @@ const F: React.FC = () => {
   const router = useRouter();
 
   return (
-    <section className="bg-gray-50 py-16 px-6 md:px-20 text-center rounded-2xl mt-10 shadow-inner">
+    <section id='contact' className="bg-gray-50 py-16 px-6 md:px-20 text-center rounded-2xl mt-10 shadow-inner">
       <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
         Work With Us 
       </h2>

@@ -1,14 +1,20 @@
 'use client'
-import React from 'react';
+import React,{useState} from 'react';
 import { motion } from 'framer-motion';
 import {Swiper, SwiperSlide} from 'swiper/react'
 import { Pagination,Autoplay } from 'swiper/modules';
 
+type Group = {
+  classification: string;
+  timeline: string;
+  desc: string;
+};
+
 
 const Experiences = () => {
+  const [selected, setSelected] = useState<Group | null>(null);
   const groups = [
-    {
-      
+    {   
       classification: 'WASH needs assessment across Somalia',
       timeline: 'October 2023 - December 2023',
       desc: `Research and assessment services for UNICEF Programs in Somalia. 
@@ -307,40 +313,86 @@ const why = [
   }
 ];
 
-
+  
   return (
-    <div id="experiences" className="w-full py-10 mt-10">
+    <div id="experience" className="w-full py-10 mt-10">
       <h2 className="text-center text-blue-900 font-bold text-3xl mb-8">Our Experience Portfolio</h2>
-      {/*Experiences*/}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-4 gap-6 px-6">
-        {groups.map((group, index) => (
-          <motion.div
-            key={index}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-start items-center p-6 border-t-4 border-orange-500"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.3,
-              delay: index * 0.05,
-              type: 'spring',
-              stiffness: 100,
-            }}
-            viewport={{ once: true }}
+      <div className="w-full py-12 relative">
+
+  {/* Continuous scrolling container */}
+  <div className="overflow-hidden m-6">
+    <div className="flex animate-marquee gap-6">
+      {groups.concat(groups).map((group, index) => ( // duplicate for seamless scroll
+        <div
+          key={index}
+          className="bg-white rounded-xl shadow-md flex flex-col justify-between items-center p-6 border-t-4 border-orange-500 min-w-[250px]"
+        >
+          <h3 className="text-orange-600 font-semibold text-lg text-center mb-2">
+            {group.classification}
+          </h3>
+          <p className="text-sm text-blue-900 italic mb-4 text-center">
+            {group.timeline}
+          </p>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all"
+            onClick={() => setSelected(group)}
           >
-            <h3 className="text-orange-600 font-semibold text-lg text-center mb-2">
-              {group.classification}
-            </h3>
-            <p className="text-sm text-blue-900 italic mb-2 text-center">{group.timeline}</p>
-            <p className="text-gray-700 text-sm leading-relaxed text-center">{group.desc}</p>
-          </motion.div>
-        ))}
+            View Project
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Modal */}
+  {selected && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white rounded-2xl shadow-lg p-8 max-w-lg w-full relative">
+        <button
+          onClick={() => setSelected(null)}
+          className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 font-bold text-xl"
+        >
+          ×
+        </button>
+
+        <h2 className="text-2xl font-bold text-orange-500 mb-4 text-center">{selected.classification}</h2>
+        <p className="text-sm text-blue-900 italic mb-4 text-center">{selected.timeline}</p>
+        <p className="text-gray-700 text-base leading-relaxed text-center">{selected.desc}</p>
       </div>
+    </div>
+  )}
+
+  {/* Full experience button */}
+  <div className="flex justify-center mt-8">
+    <a
+      href="/full-experience"
+      className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all"
+    >
+      View Full Experience
+    </a>
+  </div>
+
+  {/* Marquee animation */}
+  <style jsx>{`
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      min-width: max-content;
+      animation: marquee 140s linear infinite;
+    }
+  `}</style>
+</div>
+
+
       {/*Why*/}
       <div className="flex flex-col p-6 bg-blue-900 shadow-lg m-6 rounded-2xl">
         <h1 className='text-center text-white font-bold mb-4 text-xl md:text-2xl'>Why Partners Choose Wayfinder</h1>
         {/* Checklist Card */}
       <div className="bg-white p-8 rounded-2xl shadow-md col-span-1 lg:col-span- transition-transform duration-300 ">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {why.map((item, index) => (
             <div
               key={index}
@@ -383,10 +435,12 @@ const why = [
           {partners.map((partner, index) => (
             <SwiperSlide key={index}>
               <div className="bg-blue-100 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center p-8 mx-4 h-full">
-                <div className="w-24 h-24 md:w-28 md:h-28 flex justify-center items-center bg-gray-50 rounded-full mb-4 shadow-sm">
+                <div className="">
                   <img
                     src={partner.img}
                     alt={partner.name}
+                    width={50}
+                    height={50}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>

@@ -35,7 +35,7 @@ const Hero = () => {
             onClick={() => router.push('/about')}
             className="px-8 py-3 bg-orange-500 hover:bg-teal-500 transition-all duration-300 text-white font-semibold rounded-full shadow-lg"
           >
-            Learn More
+            Learn More About us
           </button>
         </div>
       </div>

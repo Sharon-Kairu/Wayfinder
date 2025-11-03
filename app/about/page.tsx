@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const team = [
-  {
+  { profile: '/Abdiweli.jpeg',
     name: 'Abdiweli Osman Abdi',
     role: 'Managing Director',
     bio: `Abdiweli Osman Abdi is a Development and M&E expert with over 10 years of progressive experience in programme evaluations, social research, and data analytics in development and emergency contexts across the Horn of Africa. 
@@ -19,7 +19,7 @@ He has significant hands-on experience in quantitative and qualitative research 
 Abdiweli has worked with INGOs, UN agencies, and donors like the EU, WB, and USAID across Somalia and Kenya, leading major evaluations and assessments involving multi-sectoral themes. 
 A native Somali fluent in English, Swahili, and Arabic.`,
   },
-  {
+  { profile: '/',
     name: 'Adan Noor Hussein',
     role: 'Head of Programs',
     bio: `Adan Noor Hussein is a humanitarian programme leader with extensive experience coordinating field operations, partner engagement, and community-based research activities across Somalia. 
@@ -29,8 +29,8 @@ Adan is highly skilled in community entry, operational logistics, stakeholder en
 He has supported numerous TPM, baseline, labour market, WASH, and livelihoods assessments, ensuring full methodological compliance and timely reporting. 
 A Somali native speaker, fluent in English and experienced in overseeing large field teams.`,
   },
-  {
-    name: 'Anis Yussuf Ibrahim',
+  { profile: '/Muktar.jpeg',
+    name: 'Muktar Abdullahi Omar ',
     role: 'M&E and Environmental Specialist',
     bio: `Anis Yussuf Ibrahim is a Monitoring, Evaluation, and Environmental Governance specialist with extensive experience conducting research, surveys, and environmental assessments in fragile and hard-to-reach areas across Somalia. 
 He holds an MSc in Environmental Governance and a BSc in Environmental Management and Conservation. 
@@ -38,7 +38,7 @@ Anis has strong expertise in data analysis using SPSS, PowerBI, and Excel, and i
 He has supported donor-funded programmes in agriculture, climate resilience, WASH, livelihoods, and social protection, leading baseline studies, TPM missions, environmental screening, field coordination, and training of enumerators. 
 Fluent in Somali, English, and Swahili, with strong reporting and facilitation skills.`,
   },
-  {
+  { profile: '/',
     name: 'Mohamed Elmoge',
     role: 'Data Analyst',
     bio: `Mohamed Elmoge is a data and information management specialist with strong experience supporting monitoring, evaluations, and field research through digital data systems and advanced analytics. 
@@ -47,7 +47,7 @@ Mohamed designs survey tools, programs digital data collection platforms, conduc
 He generates dashboards, summary visuals, and analytical reports that support donor reporting and evidence-based decision-making. 
 Reliable, detail-oriented, and fluent in Somali and English, he provides data quality control and remote support to field teams across multiple regions.`,
   },
-  {
+  { profile: '/',
     name: 'Yasmin Hassan',
     role: 'Head of Finance & Operations',
     bio: `Yasmin Hassan is a finance and operations professional with strong experience managing financial systems, HR procedures, logistics, and procurement for humanitarian and development programmes in Somalia. 
@@ -191,8 +191,8 @@ const page = () => {
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {team.map((member, i) => (
-            <div key={i} className="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition flex flex-col items-center border-t-4 border-orange-500">
-              <Image src="/profile.png" alt={member.name} width={100} height={100} className="rounded-full border-4 border-teal-500 mb-4" />
+            <div key={i} className="bg-white shadow-lg rounded-xl p-6 hover:shadow-2xl transition flex flex-col items-center border-t-4 border-orange-500">
+              <Image src={member.profile} alt={member.name} width={100} height={100} className="rounded-xl border-2 border-teal-600 mb-4" />
               <h2 className="text-blue-900 font-bold text-lg">{member.name}</h2>
               <p className="text-teal-600 mb-4">{member.role}</p>
               <button
