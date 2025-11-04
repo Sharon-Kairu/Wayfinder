@@ -210,22 +210,27 @@ const page = () => {
         </div>
       </div>
 
-      {/* Bio Modal */}
-      {selectedBio && (
-        <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 px-6">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 relative shadow-2xl">
-            <button
-              className="absolute top-3 right-3 text-gray-600 hover:text-red-500"
-              onClick={() => setSelectedBio(null)}
-            >
-              ✕
-            </button>
-            <h2 className="text-2xl font-bold text-blue-900 mb-2">{selectedName}</h2>
-            <p className="text-orange-500 mb-4">{selectedRole}</p>
-            <p className="text-gray-700 whitespace-pre-line leading-relaxed">{selectedBio}</p>
+     {/* Bio Modal */}
+    {selectedBio && (
+      <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4 overflow-y-auto">
+        <div className="relative bg-white rounded-2xl max-w-2xl w-full mx-auto my-8 p-6 shadow-2xl">
+          <button
+            className="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl font-bold"
+            onClick={() => setSelectedBio(null)}
+            aria-label="Close modal"
+          >
+            ✕
+          </button>
+          <h2 className="text-2xl font-bold text-blue-900 mb-2">{selectedName}</h2>
+          <p className="text-orange-500 mb-4">{selectedRole}</p>
+          <div className="max-h-[70vh] overflow-y-auto pr-2">
+            <p className="text-gray-700 whitespace-pre-line leading-relaxed">
+              {selectedBio}
+            </p>
           </div>
         </div>
-      )}
+      </div>
+    )}
 
       {/* Back button (bottom) */}
       <div className="flex justify-center py-8">
