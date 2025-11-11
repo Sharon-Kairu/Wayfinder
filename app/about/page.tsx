@@ -19,7 +19,7 @@ He has significant hands-on experience in quantitative and qualitative research 
 Abdiweli has worked with INGOs, UN agencies, and donors like the EU, WB, and USAID across Somalia and Kenya, leading major evaluations and assessments involving multi-sectoral themes. 
 A native Somali fluent in English, Swahili, and Arabic.`,
   },
-  { profile: '/',
+  { profile: '/user.png',
     name: 'Adan Noor Hussein',
     role: 'Head of Programs',
     bio: `Adan Noor Hussein is a humanitarian programme leader with extensive experience coordinating field operations, partner engagement, and community-based research activities across Somalia. 
@@ -38,7 +38,7 @@ Anis has strong expertise in data analysis using SPSS, PowerBI, and Excel, and i
 He has supported donor-funded programmes in agriculture, climate resilience, WASH, livelihoods, and social protection, leading baseline studies, TPM missions, environmental screening, field coordination, and training of enumerators. 
 Fluent in Somali, English, and Swahili, with strong reporting and facilitation skills.`,
   },
-  { profile: '/',
+  { profile: '/user.png',
     name: 'Mohamed Elmoge',
     role: 'Data Analyst',
     bio: `Mohamed Elmoge is a data and information management specialist with strong experience supporting monitoring, evaluations, and field research through digital data systems and advanced analytics. 
@@ -47,7 +47,7 @@ Mohamed designs survey tools, programs digital data collection platforms, conduc
 He generates dashboards, summary visuals, and analytical reports that support donor reporting and evidence-based decision-making. 
 Reliable, detail-oriented, and fluent in Somali and English, he provides data quality control and remote support to field teams across multiple regions.`,
   },
-  { profile: '/',
+  { profile: '/user.png',
     name: 'Yasmin Hassan',
     role: 'Head of Finance & Operations',
     bio: `Yasmin Hassan is a finance and operations professional with strong experience managing financial systems, HR procedures, logistics, and procurement for humanitarian and development programmes in Somalia. 
